@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/calendar"
+            android:title="@string/menu_home" />
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@drawable/count"
+            android:title="@string/menu_gallery" />
+        <item
+            android:id="@+id/nav_slideshow"
+            android:icon="@drawable/checklist"
+            android:title="@string/menu_slideshow" />
+        <item
+            android:id="@+id/nav_cards"
+            android:icon="@drawable/card"
+            android:title="Карточки заключённых" />
+
+        <item
+            android:id="@+id/nav_timetable"
+            android:icon="@drawable/timetable"
+            android:title="Распорядок дня" />
+
+        <item
+            android:id="@+id/nav_poker"
+            android:icon="@drawable/poker"
+            android:title="Тюремный покер" />
+    </group>
+</menu>

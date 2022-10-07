@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">Prison Keeper</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Настройки</string>
+
+    <string name="menu_home">Календарь</string>
+    <string name="menu_gallery">Счётчик</string>
+    <string name="menu_slideshow">Перекличка</string>
+    <string name="back"><![CDATA[<-]]></string>
+    <string name="forward"><![CDATA[->]]></string>
+
+    <string-array name="prisoners">Заключённые
+        <item>Серов Давид Матвеевич</item>
+        <item>Лопатин Александр Даниилович</item>
+        <item>Осипов Андрей Алексеевич</item>
+        <item>Степанов Игорь Иванович</item>
+        <item>Кузнецов Марк Михайлович</item>
+        <item>Самойлов Сергей Ильич</item>
+        <item>Смирнов Павел Германович</item>
+        <item>Ефремов Даниил Иванович</item>
+        <item>Ильинский Егор Максимович</item>
+        <item>Сотников Демьян Тимофеевич</item>
+
+    </string-array>
+
+    <string name="Sasha">Ильинский Егор Максимович\n26 лет\nРост 163 см\nВес 65 кг</string>
+    <string name="Ivan">Сотников Демьян Тимофеевич\n19 лет\nРост 175 см\nВес 57 кг</string>
+    <string name="Andrew">Самойлов Сергей Ильич\n30 лет\nРост 188 см\nВес 92 кг</string>
+    <string name="Anton">Серов Давид Матвеевич\n45 лет\nРост 192 см\nВес 88 кг</string>
+    <string name="Kolya">Серов Марк Михайлович\n37 лет\nРост 181 см\nВес 90 кг</string>
+</resources>

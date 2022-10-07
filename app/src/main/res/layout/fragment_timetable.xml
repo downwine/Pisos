@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/text_timetable"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Распорядок дня"
+        android:textColor="@color/blue"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_timetable2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:gravity="left"
+        android:text="5:15              Подъём\n5:15-5:30     Туалет, заправка кроватей\n5:30-5:40     Физическая зарядка\n5:40-6:10     Завтрак\n6:10-6:30     Развод на работу\n6:30-8:30     Рабочее время\n8:30-8:50     Общая проверка\n8:50-10:30   Рабочее время\n10:30-12:00 Обед\n12:00-14:20 Рабочее время\n14:20-14:45 Съём с работы\n14:50-15:15 Общая проверка\n15:15-15:20 Развод в школу/на мероприятия\n15:20-16:15 Воспитательные мероприятия\n16:15-17:15 Хоз час\n17:15-18:00 Культмассовая работа\n18:00-19:30 Ужин\n19:40-20:40 Личное время\n20:40-21:00 Вечерний туалет, подготовка ко сну\n21:00-5:15 Сон"
+        android:textColor="@color/blue"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_timetable" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
