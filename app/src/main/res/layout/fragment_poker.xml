@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#000000">
 
     <TextView
         android:id="@+id/text_poker"
@@ -11,7 +12,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Тюремный покер"
-        android:textColor="@color/blue"
+        android:textColor="@color/white"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,10 +22,10 @@
         android:id="@+id/text_poker2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="15dp"
         android:gravity="left"
         android:text="Вы - чётный игрок. Необходимо, чтобы сумма выкинутых пальцев (ваши + компьютер) была чётной.\nСколько пальцев выкинете?"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -38,7 +39,8 @@
         android:foregroundGravity="bottom"
         android:gravity="left"
         android:text="Счёт:     "
-        android:textColor="@color/black"
+        android:layout_marginTop="15dp"
+        android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -50,7 +52,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0"
-        android:textColor="@color/black"
+        android:layout_marginTop="15dp"
+        android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/text_poker3"
         app:layout_constraintTop_toBottomOf="@+id/img_Button_One" />
@@ -60,6 +63,8 @@
         android:layout_width="200dp"
         android:layout_height="70dp"
         android:background="@color/purple_200"
+        android:onClick="throughOneFinger"
+        android:layout_marginTop="15dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_poker2"
         app:srcCompat="@drawable/one" />
@@ -69,22 +74,14 @@
         android:layout_width="200dp"
         android:layout_height="70dp"
         android:layout_weight="1"
+        android:layout_marginTop="15dp"
         android:background="@color/purple_200"
         android:orientation="horizontal"
+        android:onClick="throughTwoFinger"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/img_Button_One"
         app:layout_constraintTop_toBottomOf="@+id/text_poker2"
         app:srcCompat="@drawable/two"
-        tools:ignore="MissingConstraints" />
-
-    <ImageView
-        android:id="@+id/Step"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/one"
-        android:visibility="invisible"
-
-        app:layout_constraintTop_toBottomOf="@+id/text_poker4"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -92,23 +89,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:foregroundGravity="bottom"
+        android:layout_marginTop="10dp"
         android:gravity="left"
         android:text="Ход компьютера:     "
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/total" />
 
     <ImageView
-        android:id="@+id/Step2"
+        android:id="@+id/Step"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/two"
+        android:layout_height="400dp"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/one_finger"
         android:visibility="invisible"
-
-        app:layout_constraintTop_toBottomOf="@+id/text_poker4"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_poker4" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

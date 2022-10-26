@@ -44,8 +44,7 @@ public class CardsFragment extends Fragment {
 
         binding = FragmentCardsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-//        butt = (CardView) root.findViewById(R.id.prisoner);
-//        butt.setOnClickListener(clickListener);
+
         setInitialData();
         RecyclerView recyclerView = root.findViewById(R.id.list);
         // создаем адаптер

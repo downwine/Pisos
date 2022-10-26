@@ -42,8 +42,6 @@ public class GalleryFragment extends Fragment {
         }
     };
 
-
-
     /*Метод сброса подсчета*/
     private void initCounter(){
         counter = 0;

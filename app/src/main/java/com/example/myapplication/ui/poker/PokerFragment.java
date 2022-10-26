@@ -20,6 +20,8 @@ import com.example.myapplication.databinding.FragmentPokerBinding;
 import com.example.myapplication.databinding.FragmentSlideshowBinding;
 import com.example.myapplication.ui.slideshow.SlideshowViewModel;
 
+import java.util.Random;
+
 public class PokerFragment extends Fragment {
 
     private FragmentPokerBinding binding;
@@ -27,8 +29,7 @@ public class PokerFragment extends Fragment {
     private ImageButton img_button_two;
     private TextView total;
     private ImageView step;
-
-    private int counter;
+    private Integer totalScore = 0;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -42,44 +43,48 @@ public class PokerFragment extends Fragment {
         pokerViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
 
         img_button_one = (ImageButton) root.findViewById(R.id.img_Button_left);
-        
-        //initTotal();
+        binding.imgButtonOne.setOnClickListener(v -> throughOneFinger());
+        binding.imgButtonTwo.setOnClickListener(v -> throughTwoFinger());
+        step = (ImageView) root.findViewById(R.id.Step);
 
         return root;
     }
 
-    private View.OnClickListener clickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            play();
-            switch (v.getId()){
-                case R.id.img_Button_One :
-                    //minusCounter();
-                    break;
-                case R.id.img_Button_Two :
-                    //plusCounter();
-                    break;
-            }
+    public void throughOneFinger() {
+        Random r = new Random();
+        step.setVisibility(View.INVISIBLE);
+        View root = binding.getRoot();
+        Integer random = r.nextInt();
+        if (random % 2 == 0) {
+            step.setImageDrawable(getResources().getDrawable(R.drawable.two_fingers));
+            step.setVisibility(View.VISIBLE);
+            totalScore += 10;
+        } else {
+            step.setImageDrawable(getResources().getDrawable(R.drawable.one_finger));
+            step.setVisibility(View.VISIBLE);
+            totalScore -= 10;
         }
-    };
-
-    private void initTotal(){
-        counter = 0;
-        total.setText(counter + "");
+        TextView view1 = (TextView) root.findViewById(R.id.total);
+        view1.setText(String.valueOf(totalScore));
     }
 
-    private void play()
-    {
-
-        if(true)
-        {
-            counter++;
+    public void throughTwoFinger() {
+        Random r = new Random();
+        Integer random = r.nextInt();
+        step.setVisibility(View.INVISIBLE);
+        View root = binding.getRoot();
+        if (random % 2 == 0) {
+            step.setImageDrawable(getResources().getDrawable(R.drawable.two_fingers));
+            step.setVisibility(View.VISIBLE);
+            //root.findViewById(R.id.Step).setVisibility(View.VISIBLE);
+            totalScore += 10;
+        } else {
+            step.setImageDrawable(getResources().getDrawable(R.drawable.one_finger));
+            step.setVisibility(View.VISIBLE);
+            totalScore -= 10;
         }
-        else {
-            counter--;
-        }
-
-        total.setText(counter + "");
+        TextView view1 = (TextView) root.findViewById(R.id.total);
+        view1.setText(String.valueOf(totalScore));
     }
 
     @Override

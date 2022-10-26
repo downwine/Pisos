@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import androidx.annotation.NonNull;
@@ -15,8 +16,6 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.myapplication.MainActivity;
-import com.example.myapplication.R;
 import com.example.myapplication.databinding.FragmentHomeBinding;
 
 import java.time.LocalDate;
@@ -38,7 +37,10 @@ public class HomeFragment extends Fragment {
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+        binding.nextMonth.setOnClickListener(v -> nextMonthAction());
+        binding.previousMonth.setOnClickListener(v -> previousMonthAction());
 
+        toStartCalendar();
         return root;
     }
 
@@ -50,15 +52,65 @@ public class HomeFragment extends Fragment {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
+    public void previousMonthAction() {
+        selectedDate = selectedDate.minusMonths(1);
+        setMonthView();
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public void nextMonthAction() {
+        selectedDate = selectedDate.plusMonths(1);
+        setMonthView();
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
     private void setMonthView()
     {
         monthYearText.setText(monthYearFromDate(selectedDate));
         ArrayList<String> daysInMonth = daysInMonthArray(selectedDate);
 
         CalendarAdapter calendarAdapter = new CalendarAdapter(daysInMonth,
-                (CalendarAdapter.OnItemListener) this);
+                new CalendarAdapter.OnItemListener() {
+                    @Override
+                    public void onItemClick(int position, String dayText) {
+                        if(!dayText.equals(""))
+                        {
+                            if (dayText.equals("27")) {
+                                String message = "Selected Date " + dayText + " " + monthYearFromDate(selectedDate);
+                                Toast.makeText(getContext(), message, Toast.LENGTH_LONG).show();
+                            }
+
+                            if (dayText.equals("8")) {
+                                String message = "Задача на сегодня: провести уборку";
+                                Toast.makeText(getContext(), message, Toast.LENGTH_LONG).show();
+                            }
+
+                            if (dayText.equals("17")) {
+                                String message = "Задача на сегодня: проверить карцер";
+                                Toast.makeText(getContext(), message, Toast.LENGTH_LONG).show();
+                            }
+
+                            if (dayText.equals("20")) {
+                                String message = "Задача на сегодня: отвести заключённых на прогулку";
+                                Toast.makeText(getContext(), message, Toast.LENGTH_LONG).show();
+                            }
+
+                            if (dayText.equals("14")) {
+                                String message = "Задача на сегодня: наблюдать за тренажёрным залом";
+                                Toast.makeText(getContext(), message, Toast.LENGTH_LONG).show();
+                            }
+
+                            if (dayText.equals("11") || dayText.equals("12") || dayText.equals("18") || dayText.equals("19")
+                                    || dayText.equals("25") || dayText.equals("26")) {
+                                String message = "Сегодня нет задач.";
+                                Toast.makeText(getContext(), message, Toast.LENGTH_LONG).show();
+                            }
+
+                        }
+                    }
+                });
         RecyclerView.LayoutManager layoutManager
-                = new GridLayoutManager(context.getApplicationContext(), 7);
+                = new GridLayoutManager(getContext(), 7);
         calendarRecyclerView.setLayoutManager(layoutManager);
         calendarRecyclerView.setAdapter(calendarAdapter);
     }
@@ -97,8 +149,8 @@ public class HomeFragment extends Fragment {
 
     private void initWidgets()
     {
-        calendarRecyclerView = context.findViewById(R.id.calendarRecyclerView);
-        monthYearText = context.findViewById(R.id.monthYearTV);
+        calendarRecyclerView = binding.calendarRecyclerView;
+        monthYearText = binding.monthYearTV;
     }
 
     @Override

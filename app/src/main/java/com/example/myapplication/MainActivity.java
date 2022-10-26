@@ -25,12 +25,12 @@ import java.time.LocalDate;
 import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity implements CalendarAdapter.OnItemListener {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
-
 
     @RequiresApi(api = Build.VERSION_CODES.O)
 
@@ -63,10 +63,10 @@ public class MainActivity extends AppCompatActivity implements CalendarAdapter.O
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
-
-
         toStartCalendar();
     }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -192,6 +192,7 @@ public class MainActivity extends AppCompatActivity implements CalendarAdapter.O
         }
         return  daysInMonthArray;
     }
+
 
 //    private PopupWindow myPopUp;
 //    private Button prisoner1;
