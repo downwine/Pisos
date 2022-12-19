@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
@@ -20,6 +21,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.myapplication.databinding.ActivityMainBinding;
 import com.example.myapplication.ui.home.CalendarAdapter;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.time.LocalDate;
 import java.time.YearMonth;
@@ -31,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements CalendarAdapter.O
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
+    private DatabaseReference pisosData;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
 
@@ -64,6 +68,14 @@ public class MainActivity extends AppCompatActivity implements CalendarAdapter.O
         NavigationUI.setupWithNavController(navigationView, navController);
 
         toStartCalendar();
+        FirebaseDatabase pisosData = FirebaseDatabase.getInstance();
+        DatabaseReference dbPrisoner  = pisosData.getReference("Prisoner");
+
+//        DatabaseReference dbCase  = pisosData.getReference("Case");
+//        DatabaseReference dbRollCall  = pisosData.getReference("RollCall");
+//        DatabaseReference dbActivity  = pisosData.getReference("Activity");
+//        DatabaseReference dbTimetable  = pisosData.getReference("Timetable");
+//        DatabaseReference dbWeek  = pisosData.getReference("Week");
     }
 
 
@@ -191,6 +203,11 @@ public class MainActivity extends AppCompatActivity implements CalendarAdapter.O
             }
         }
         return  daysInMonthArray;
+    }
+
+    public void onRead(View view){
+        Intent i = new Intent(MainActivity.this, ReadActivity.class);
+        startActivity(i);
     }
 
 
