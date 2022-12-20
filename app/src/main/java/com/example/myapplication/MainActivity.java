@@ -19,7 +19,9 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.databinding.ActivityMainBinding;
+import com.example.myapplication.read.Prisoner_ReadActivity;
 import com.example.myapplication.ui.home.CalendarAdapter;
+import com.example.myapplication.write.Prisoner_WriteActivity;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -28,13 +30,11 @@ import java.time.LocalDate;
 import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Random;
 
 public class MainActivity extends AppCompatActivity implements CalendarAdapter.OnItemListener {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
-    private DatabaseReference pisosData;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
 
@@ -68,8 +68,6 @@ public class MainActivity extends AppCompatActivity implements CalendarAdapter.O
         NavigationUI.setupWithNavController(navigationView, navController);
 
         toStartCalendar();
-        FirebaseDatabase pisosData = FirebaseDatabase.getInstance();
-        DatabaseReference dbPrisoner  = pisosData.getReference("Prisoner");
 
 //        DatabaseReference dbCase  = pisosData.getReference("Case");
 //        DatabaseReference dbRollCall  = pisosData.getReference("RollCall");
@@ -205,8 +203,13 @@ public class MainActivity extends AppCompatActivity implements CalendarAdapter.O
         return  daysInMonthArray;
     }
 
-    public void onRead(View view){
-        Intent i = new Intent(MainActivity.this, ReadActivity.class);
+    public void onWritePrisoner(View view){
+        Intent i = new Intent(MainActivity.this, Prisoner_WriteActivity.class);
+        startActivity(i);
+    }
+
+    public void onReadPrisoner(View view){
+        Intent i = new Intent(MainActivity.this, Prisoner_ReadActivity.class);
         startActivity(i);
     }
 

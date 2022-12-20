@@ -1,4 +1,6 @@
-package com.example.myapplication;
+package com.example.myapplication.entities;
+
+import com.example.myapplication.entities.Case;
 
 import java.util.Date;
 

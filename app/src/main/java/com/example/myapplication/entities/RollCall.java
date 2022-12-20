@@ -1,4 +1,7 @@
-package com.example.myapplication;
+package com.example.myapplication.entities;
+
+import com.example.myapplication.entities.Activity;
+import com.example.myapplication.entities.Prisoner;
 
 import java.util.Date;
 

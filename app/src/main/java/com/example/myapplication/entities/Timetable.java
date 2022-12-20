@@ -1,6 +1,8 @@
-package com.example.myapplication;
+package com.example.myapplication.entities;
 
 import android.text.format.Time;
+
+import com.example.myapplication.entities.Activity;
 
 public class Timetable {
     public String id;
