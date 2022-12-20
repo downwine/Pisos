@@ -49,11 +49,12 @@ public class CardsFragment extends Fragment {
     private Button prisoner5;
     private PopupWindow myPopUp;
     //private List<Prisoner> prisoners;
-    private DatabaseReference pisosData;
+    private DatabaseReference dbPrisoner;
     private CardView butt;
     private LinearLayout positionOfPopUp;
-    ArrayList<CardDataModel> prisoners = new ArrayList<CardDataModel>();
-    CardAdapter adapter = new CardAdapter(getContext(), prisoners);
+
+    List<CardDataModel> prisoners = new ArrayList<CardDataModel>();
+    private CardAdapter adapter;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -61,19 +62,20 @@ public class CardsFragment extends Fragment {
         binding = FragmentCardsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        setInitialData();
         FirebaseDatabase pisosData = FirebaseDatabase.getInstance();
-        DatabaseReference dbPrisoner  = pisosData.getReference("Prisoner");
+        dbPrisoner  = pisosData.getReference("Prisoner");
+        setInitialData();
 
         RecyclerView recyclerView = root.findViewById(R.id.list);
-        //ListView listView = root.findViewById(R.id.list);
-        // создаем адаптер
-        //CardAdapter adapter = new CardAdapter(getContext(), cards);
-        //ArrayAdapter adapter = new ArrayAdapter<>(this, root.findViewById(R.id.list), cards);
-        //root.findViewById(R.id.prisoner).setAdapter(adapter);
-        // устанавливаем для списка адаптер
+        adapter = new CardAdapter(getContext(), prisoners);
         recyclerView.setAdapter(adapter);
         getDataFromDB();
+
+        // создаем адаптер
+        //CardAdapter adapter = new CardAdapter(getContext(), cards);
+
+        //root.findViewById(R.id.prisoner).setAdapter(adapter);
+        // устанавливаем для списка адаптер
 
         return root;
     }
@@ -90,6 +92,14 @@ public class CardsFragment extends Fragment {
 //                "192 см", "88 кг", R.drawable.ivan));
 //        cards.add(new CardDataModel ("Серов Марк Михайлович", "37 лет",
 //                "181 см", "90 кг", R.drawable.kolya));
+
+        String id = dbPrisoner.getKey();
+        String name =  "aboba";
+        Integer age = 20;
+        Double height = 1.78;
+        Double weight = 100.78;
+        Prisoner newPrisoner = new Prisoner(name, age, height, weight, id);
+        dbPrisoner.push().setValue(newPrisoner);
     }
 
     private void getDataFromDB(){
@@ -100,9 +110,9 @@ public class CardsFragment extends Fragment {
                 prisoners.clear();
                 for(DataSnapshot ds : snapshot.getChildren())
                 {
-                    CardDataModel prisoner = ds.getValue(CardDataModel.class);
-                    //assert prisoner != null;
-                    prisoners.add(prisoner);
+                    Prisoner prisoner = ds.getValue(Prisoner.class);
+                    assert prisoner != null;
+                    prisoners.add(new CardDataModel (prisoner.name, prisoner.age, prisoner.height, prisoner.weight, prisoner.id));
                 }
                 adapter.notifyDataSetChanged();
             }
@@ -112,8 +122,8 @@ public class CardsFragment extends Fragment {
 
             }
         };
-        pisosData.addValueEventListener(vListener);
-        System.out.println(Array.getLength(prisoners));
+        dbPrisoner.addValueEventListener(vListener);
+        //System.out.println(Array.getLength(prisoners));
     }
 
 

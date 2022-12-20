@@ -3,12 +3,12 @@ package com.example.myapplication;
 public class CardDataModel {
 
     private String fio;
-    private String age;
-    private String height;
-    private String weight;
-    private Integer photo;
+    private Integer age;
+    private Double height;
+    private Double weight;
+    private String photo;
 
-    public CardDataModel(String fio, String age, String height, String weight, Integer photo) {
+    public CardDataModel(String fio, Integer age, Double height, Double weight, String photo) {
         this.fio = fio;
         this.age = age;
         this.height = height;
@@ -16,43 +16,45 @@ public class CardDataModel {
         this.photo = photo;
     }
 
+//
+
     public String getFio() {
         return fio;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public Double getHeight() {
+        return height;
+    }
+
+    public Double getWeight() {
+        return weight;
+    }
+
+    public String getPhoto() {
+        return photo;
     }
 
     public void setFio(String fio) {
         this.fio = fio;
     }
 
-    public String getAge() {
-        return age;
-    }
-
-    public void setAge(String age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 
-    public String getHeight() {
-        return height;
-    }
-
-    public void setHeight(String height) {
+    public void setHeight(Double height) {
         this.height = height;
     }
 
-    public String getWeight() {
-        return weight;
-    }
-
-    public void setWeight(String weight) {
+    public void setWeight(Double weight) {
         this.weight = weight;
     }
 
-    public Integer getPhoto() {
-        return photo;
-    }
-
-    public void setPhoto(Integer photo) {
+    public void setPhoto(String photo) {
         this.photo = photo;
     }
 }

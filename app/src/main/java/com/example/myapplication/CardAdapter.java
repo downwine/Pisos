@@ -4,7 +4,6 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -31,11 +30,11 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(CardAdapter.ViewHolder holder, int position) {
         CardDataModel cardDataModel = cards.get(position);
-        holder.photoView.setImageResource(cardDataModel.getPhoto());
+        //holder.photoView.setImageResource(cardDataModel.getPhoto());
         holder.fioView.setText(cardDataModel.getFio());
-        holder.ageView.setText(cardDataModel.getAge());
-        holder.heightView.setText(cardDataModel.getHeight());
-        holder.weightView.setText(cardDataModel.getWeight());
+        holder.ageView.setText(cardDataModel.getAge().toString());
+        holder.heightView.setText(cardDataModel.getHeight().toString());
+        holder.weightView.setText(cardDataModel.getWeight().toString());
     }
 
     @Override
@@ -44,11 +43,11 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        final ImageView photoView;
+        //final ImageView photoView;
         final TextView ageView, fioView, heightView, weightView;
         ViewHolder(View view){
             super(view);
-            photoView = view.findViewById(R.id.prisoner_img);
+            //photoView = view.findViewById(R.id.prisoner_img);
             fioView = view.findViewById(R.id.fio_txt);
             ageView = view.findViewById(R.id.age_txt);
             heightView = view.findViewById(R.id.height_txt);
