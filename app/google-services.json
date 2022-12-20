@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "118069942848",
+    "firebase_url": "https://mobile-pisos-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "mobile-pisos",
+    "storage_bucket": "mobile-pisos.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:118069942848:android:881f6298efb2e94df89da5",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "118069942848-t5eeksr0d0jv9h7brhilk6r35p0n1tgn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMWDXYJ2R11tQDwEzflJb3SZD0KcBIDh8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "118069942848-t5eeksr0d0jv9h7brhilk6r35p0n1tgn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
