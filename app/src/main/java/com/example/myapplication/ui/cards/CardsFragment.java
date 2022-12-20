@@ -112,7 +112,8 @@ public class CardsFragment extends Fragment {
                 {
                     Prisoner prisoner = ds.getValue(Prisoner.class);
                     assert prisoner != null;
-                    prisoners.add(new CardDataModel (prisoner.name, prisoner.age, prisoner.height, prisoner.weight, prisoner.id));
+                    prisoners.add(new CardDataModel (prisoner.id, prisoner.name, prisoner.age,
+                            prisoner.height, prisoner.weight, prisoner.welcome, prisoner.bye));
                 }
                 adapter.notifyDataSetChanged();
             }

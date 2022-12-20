@@ -20,8 +20,8 @@ public class Prisoner {
         this.age = age;
         this.height = height;
         this.weight = weight;
-//        this.welcome = welcome;
-//        this.bye = bye;
+        this.welcome = welcome;
+        this.bye = bye;
 //        this.id_criminal_case = id_criminal_case;
     }
 }
