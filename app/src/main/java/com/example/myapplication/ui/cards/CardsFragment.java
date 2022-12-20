@@ -29,6 +29,8 @@ import com.example.myapplication.R;
 import com.example.myapplication.databinding.FragmentCardsBinding;
 import com.example.myapplication.entities.Prisoner;
 import com.example.myapplication.read.Prisoner_ReadActivity;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -71,6 +73,14 @@ public class CardsFragment extends Fragment {
         recyclerView.setAdapter(adapter);
         getDataFromDB();
 
+        FloatingActionButton fab = root.findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Here's a Snackbar", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
         // создаем адаптер
         //CardAdapter adapter = new CardAdapter(getContext(), cards);
 
