@@ -14,7 +14,7 @@ public class Prisoner {
 
     }
 
-    public Prisoner(String name, Integer age, Double height, Double weight, String id) {
+    public Prisoner(String name, Integer age, Double height, Double weight, String id, Date welcome, Date bye) {
         this.id = id;
         this.name = name;
         this.age = age;

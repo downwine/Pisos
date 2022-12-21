@@ -39,6 +39,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class CardsFragment extends Fragment {
@@ -53,6 +54,7 @@ public class CardsFragment extends Fragment {
     //private List<Prisoner> prisoners;
     private DatabaseReference dbPrisoner;
     private CardView butt;
+    FloatingActionButton mFab;
     private LinearLayout positionOfPopUp;
 
     List<CardDataModel> prisoners = new ArrayList<CardDataModel>();
@@ -73,8 +75,8 @@ public class CardsFragment extends Fragment {
         recyclerView.setAdapter(adapter);
         getDataFromDB();
 
-        FloatingActionButton fab = root.findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        mFab = root.findViewById(R.id.fab);
+        mFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Here's a Snackbar", Snackbar.LENGTH_LONG)
@@ -104,11 +106,13 @@ public class CardsFragment extends Fragment {
 //                "181 см", "90 кг", R.drawable.kolya));
 
         String id = dbPrisoner.getKey();
-        String name =  "aboba";
+        String name =  "Васильева- Куприянова София Олеговна";
         Integer age = 20;
         Double height = 1.78;
         Double weight = 100.78;
-        Prisoner newPrisoner = new Prisoner(name, age, height, weight, id);
+        Date welcome = new Date(2022, 01, 01);
+        Date bye = new Date(2023, 01, 01);
+        Prisoner newPrisoner = new Prisoner(name, age, height, weight, id, welcome, bye);
         dbPrisoner.push().setValue(newPrisoner);
     }
 

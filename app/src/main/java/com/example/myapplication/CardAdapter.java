@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
+import java.util.Locale;
 
 public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
 
@@ -27,17 +29,20 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
         return new ViewHolder(view);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(CardAdapter.ViewHolder holder, int position) {
         CardDataModel cardDataModel = cards.get(position);
+        Locale locale = new Locale("ru");
+        Locale.setDefault(locale);
         //holder.photoView.setImageResource(cardDataModel.getPhoto());
-        holder.idView.setText(cardDataModel.getId());
+        holder.idView.setText("ID: " + cardDataModel.getId());
         holder.fioView.setText(cardDataModel.getFio());
-        holder.ageView.setText(cardDataModel.getAge().toString());
-        holder.heightView.setText(cardDataModel.getHeight().toString());
-        holder.weightView.setText(cardDataModel.getWeight().toString());
-        holder.welcomeView.setText(cardDataModel.getWelcome().toString());
-        holder.byeView.setText(cardDataModel.getBye().toString());
+        holder.ageView.setText("Возраст: " + cardDataModel.getAge().toString());
+        holder.heightView.setText("Рост: " + cardDataModel.getHeight().toString());
+        holder.weightView.setText("Вес: " + cardDataModel.getWeight().toString());
+        holder.welcomeView.setText("Прибыл " + String.format(locale, "%tD\n", cardDataModel.getWelcome()));
+        holder.byeView.setText("Уедет " + String.format(locale, "%tD\n", cardDataModel.getBye()));
     }
 
     @Override
