@@ -12,8 +12,9 @@ public class CardDataModel {
     private Double height;
     private Double weight;
     private Date welcome, bye;
-    //private String photo;
+    private String photo;
 
+    //ANNYS ANNUS АННУС
     public CardDataModel(String name_criminal_case, String fio, Integer age, Double height, Double weight,
                          Date welcome, Date bye) {//String photo) {
         this.name_criminal_case = name_criminal_case;
@@ -66,9 +67,9 @@ public class CardDataModel {
         return weight;
     }
 
-//    public String getPhoto() {
-//        return photo;
-//    }
+    public String getPhoto() {
+        return photo;
+    }
 
     public void setFio(String fio) {
         this.fio = fio;
@@ -86,7 +87,7 @@ public class CardDataModel {
         this.weight = weight;
     }
 
-//    public void setPhoto(String photo) {
-//        this.photo = photo;
-//    }
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
 }

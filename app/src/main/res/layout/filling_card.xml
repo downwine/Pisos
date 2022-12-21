@@ -102,7 +102,7 @@
         <EditText
             android:id="@+id/welcome_ed"
             android:layout_width="240dp"
-            android:hint="Прибыл: День, месяц, год"
+            android:hint="Прибыл: день.месяц.год"
             android:layout_height="45dp"
             android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
@@ -117,16 +117,16 @@
             android:layout_marginStart="4dp"
             android:layout_marginTop="4dp"
             android:ems="10"
-            android:hint="Уедет: День, месяц, год"
+            android:hint="Уедет: день.месяц.год"
             android:textColor="@color/black"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/welcome_ed" />
 
         <Spinner
-            android:id="@+id/spinner1"
+            android:id="@+id/spinner"
             android:layout_width="240dp"
-            android:layout_height="wrap_content"
+            android:layout_height="45dp"
             android:background="@android:drawable/btn_dropdown"
             android:hint="Статья"
             android:spinnerMode="dropdown"
@@ -142,7 +142,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/spinner1" />
+            app:layout_constraintTop_toBottomOf="@+id/spinner" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>
