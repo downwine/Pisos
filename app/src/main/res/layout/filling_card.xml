@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/prisoner"
+    android:layout_width="match_parent"
+    android:foreground="?android:selectableItemBackground"
+    android:clickable="true"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="20dp"
+    android:focusable="true"
+    android:layout_height="320dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="320dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/prisoner_img"
+            android:layout_width="160dp"
+            android:layout_height="180dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:hint="Фамилия\nИмя\nОтчество"
+            android:id="@+id/fio_txt"
+            android:ems="10"
+            android:layout_width="230dp"
+            android:layout_height="110dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/prisoner_img"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/age_txt"
+            android:layout_width="150dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="20dp"
+            android:hint="Возраст"
+            android:ems="10"
+            android:textColor="@color/black"
+            android:layout_marginTop="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/prisoner_img"
+            app:layout_constraintTop_toBottomOf="@+id/id_txt" />
+
+        <EditText
+            android:id="@+id/height_txt"
+            android:layout_width="150dp"
+            android:layout_height="35dp"
+            android:hint="Рост"
+            android:ems="10"
+            android:layout_marginTop="4dp"
+            android:layout_marginStart="20dp"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/prisoner_img"
+            app:layout_constraintTop_toBottomOf="@+id/age_txt" />
+
+        <EditText
+            android:id="@+id/weight_txt"
+            android:layout_width="150dp"
+            android:layout_height="35dp"
+            android:hint="Вес"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="4dp"
+            android:ems="10"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/prisoner_img"
+            app:layout_constraintTop_toBottomOf="@+id/height_txt"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <EditText
+            android:id="@+id/id_txt"
+            android:hint="Прибыл: День, месяц, год"
+            android:layout_width="150dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/prisoner_img"
+            app:layout_constraintTop_toBottomOf="@+id/fio_txt" />
+
+        <EditText
+            android:id="@+id/welcome_txt"
+            android:layout_width="240dp"
+            android:hint="Прибыл: День, месяц, год"
+            android:layout_height="36dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/prisoner_img" />
+
+        <EditText
+            android:id="@+id/bye_txt"
+            android:layout_width="240dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="5dp"
+            android:ems="10"
+            android:hint="Уедет: День, месяц, год"
+            android:layout_marginStart="5dp"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/welcome_txt" />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClickWrite"
+            android:text="Записать"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

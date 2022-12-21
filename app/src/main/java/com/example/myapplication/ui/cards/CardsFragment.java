@@ -24,11 +24,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.CardAdapter;
 import com.example.myapplication.CardDataModel;
+import com.example.myapplication.LoginActivity;
 import com.example.myapplication.MainActivity;
 import com.example.myapplication.R;
 import com.example.myapplication.databinding.FragmentCardsBinding;
 import com.example.myapplication.entities.Prisoner;
 import com.example.myapplication.read.Prisoner_ReadActivity;
+import com.example.myapplication.write.WriteActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DataSnapshot;
@@ -81,6 +83,8 @@ public class CardsFragment extends Fragment {
             public void onClick(View view) {
                 Snackbar.make(view, "Here's a Snackbar", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+                //Intent myIntent = new Intent(getContext(), WriteActivity.class);
+                //getContext().startActivity(myIntent);
             }
         });
         // создаем адаптер
