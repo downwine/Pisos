@@ -36,7 +36,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
         Locale locale = new Locale("ru");
         Locale.setDefault(locale);
         //holder.photoView.setImageResource(cardDataModel.getPhoto());
-        holder.idView.setText("ID: " + cardDataModel.getId());
+        holder.caseView.setText(cardDataModel.getName_criminal_case());
         holder.fioView.setText(cardDataModel.getFio());
         holder.ageView.setText("Возраст: " + cardDataModel.getAge().toString());
         holder.heightView.setText("Рост: " + cardDataModel.getHeight().toString());
@@ -52,11 +52,11 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         //final ImageView photoView;
-        final TextView ageView, fioView, heightView, weightView, idView, welcomeView, byeView;
+        final TextView ageView, fioView, heightView, weightView, caseView, welcomeView, byeView;
         ViewHolder(View view){
             super(view);
             //photoView = view.findViewById(R.id.prisoner_img);
-            idView = view.findViewById(R.id.id_txt);
+            caseView = view.findViewById(R.id.case_txt);
             fioView = view.findViewById(R.id.fio_txt);
             ageView = view.findViewById(R.id.age_txt);
             heightView = view.findViewById(R.id.height_txt);

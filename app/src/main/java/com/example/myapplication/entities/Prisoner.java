@@ -8,13 +8,13 @@ public class Prisoner {
     public Double height;
     public Double weight;
     public Date welcome, bye;
-    public Case id_criminal_case;
+    public String id_criminal_Crim_case;
 
     public Prisoner() {
 
     }
 
-    public Prisoner(String name, Integer age, Double height, Double weight, String id, Date welcome, Date bye) {
+    public Prisoner(String name, Integer age, Double height, Double weight, String id, Date welcome, Date bye, String id_criminal_Crim_case) {
         this.id = id;
         this.name = name;
         this.age = age;
@@ -22,6 +22,6 @@ public class Prisoner {
         this.weight = weight;
         this.welcome = welcome;
         this.bye = bye;
-//        this.id_criminal_case = id_criminal_case;
+        this.id_criminal_Crim_case = id_criminal_Crim_case;
     }
 }

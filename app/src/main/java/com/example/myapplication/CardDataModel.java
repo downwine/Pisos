@@ -1,10 +1,12 @@
 package com.example.myapplication;
 
+import com.example.myapplication.entities.CrimCase;
+
 import java.util.Date;
 
 public class CardDataModel {
 
-    private String id;
+    private String name_criminal_case;
     private String fio;
     private Integer age;
     private Double height;
@@ -12,9 +14,9 @@ public class CardDataModel {
     private Date welcome, bye;
     //private String photo;
 
-    public CardDataModel(String id, String fio, Integer age, Double height, Double weight,
+    public CardDataModel(String name_criminal_case, String fio, Integer age, Double height, Double weight,
                          Date welcome, Date bye) {//String photo) {
-        this.id = id;
+        this.name_criminal_case = name_criminal_case;
         this.fio = fio;
         this.age = age;
         this.height = height;
@@ -24,20 +26,20 @@ public class CardDataModel {
         //this.photo = photo;
     }
 
-    public String getId() {
-        return id;
-    }
-
     public Date getWelcome() {
         return welcome;
     }
 
-    public Date getBye() {
-        return bye;
+    public String getName_criminal_case() {
+        return name_criminal_case;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setName_criminal_case(String name_criminal_case) {
+        this.name_criminal_case = name_criminal_case;
+    }
+
+    public Date getBye() {
+        return bye;
     }
 
     public void setWelcome(Date welcome) {

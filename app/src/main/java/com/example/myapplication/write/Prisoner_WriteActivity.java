@@ -5,7 +5,7 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.myapplication.entities.Case;
+import com.example.myapplication.entities.CrimCase;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -18,7 +18,7 @@ public class Prisoner_WriteActivity extends AppCompatActivity {
     private Integer age;
     private Float height, weight;
     private Date welcome, bye;
-    private Case id_criminal_case;
+    private CrimCase id_criminal_Crim_case;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

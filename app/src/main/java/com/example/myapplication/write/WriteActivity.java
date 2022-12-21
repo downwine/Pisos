@@ -2,33 +2,33 @@ package com.example.myapplication.write;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.myapplication.MainActivity;
 import com.example.myapplication.R;
-import com.example.myapplication.write.Prisoner_WriteActivity;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
+import com.example.myapplication.entities.CrimCase;
+import com.example.myapplication.entities.Prisoner;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.Date;
 
 public class WriteActivity extends AppCompatActivity {
     private EditText edLogin, edPassword;
     private FirebaseAuth mAuth;
+    private DatabaseReference dbPrisoner;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.filling_card);
         init();
+        FirebaseDatabase pisosData = FirebaseDatabase.getInstance();
+        dbPrisoner  = pisosData.getReference("Prisoner");
 
         Intent i = getIntent();
     }
@@ -45,44 +45,23 @@ public class WriteActivity extends AppCompatActivity {
     }
 
     private void init() {
-//        edLogin = findViewById(R.id.edLogin);
-//        edPassword = findViewById(R.id.edPassword);
-//        mAuth = FirebaseAuth.getInstance();
+        edLogin = findViewById(R.id.edLogin);
+        edPassword = findViewById(R.id.edPassword);
+        mAuth = FirebaseAuth.getInstance();
     }
 
-//    public void onClickSignUp(View view) {
-//        if (!TextUtils.isEmpty(edLogin.getText().toString()) && !TextUtils.isEmpty(edPassword.getText().toString())) {
-//            mAuth.createUserWithEmailAndPassword(edLogin.getText().toString(), edPassword.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-//                @Override
-//                public void onComplete(@NonNull Task<AuthResult> task) {
-//                    if (task.isSuccessful()) {
-//                        Toast.makeText(getApplicationContext(), "User SignUp Successful", Toast.LENGTH_SHORT).show();
-//                    } else {
-//                        Toast.makeText(getApplicationContext(), "User SignUp failed", Toast.LENGTH_SHORT).show();
-//                    }
-//                }
-//            });
-//
-//        } else {
-//            Toast.makeText(getApplicationContext(), "Please entre Email and Password", Toast.LENGTH_SHORT).show();
-//        }
-//    }
 
     public void onClickWrite(View view) {
-//        if (!TextUtils.isEmpty(edLogin.getText().toString()) && !TextUtils.isEmpty(edPassword.getText().toString())) {
-//            mAuth.signInWithEmailAndPassword(edLogin.getText().toString(), edPassword.getText().toString()).addOnCompleteListener(this, new
-//                    OnCompleteListener<AuthResult>() {
-//                        @Override
-//                        public void onComplete(@NonNull Task<AuthResult> task) {
-//                            if (task.isSuccessful()) {
-//                                Toast.makeText(getApplicationContext(), "User SignIn Successful", Toast.LENGTH_SHORT).show();
-//                                Intent myIntent = new Intent(com.example.myapplication.LoginActivity.this, MainActivity.class);
-//                                com.example.myapplication.LoginActivity.this.startActivity(myIntent);
-//                            }
-//                            else {
-//                                Toast.makeText(getApplicationContext(), "User SignIn failed", Toast.LENGTH_SHORT).show();
-//                            }
-//                        }
-//                    });
+
+            String id = dbPrisoner.getKey();
+            String name =  "Васильева- Куприянова София Олеговна";
+            Integer age = 20;
+            Double height = 1.78;
+            Double weight = 100.78;
+            Date welcome = new Date(2022, 01, 01);
+            Date bye = new Date(2023, 01, 01);
+            CrimCase crim_case = new CrimCase(id, "украл", "Вор");
+            Prisoner newPrisoner = new Prisoner(name, age, height, weight, id, welcome, bye, crim_case.name);
+            dbPrisoner.push().setValue(newPrisoner);
         }
 }
