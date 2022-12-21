@@ -17,8 +17,8 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
     private final LayoutInflater inflater;
     private final List<CardDataModel> cards;
 
-    public CardAdapter(Context context, List<CardDataModel> states) {
-        this.cards = states;
+    public CardAdapter(Context context, List<CardDataModel> cards) {
+        this.cards = cards;
         this.inflater = LayoutInflater.from(context);
     }
 
