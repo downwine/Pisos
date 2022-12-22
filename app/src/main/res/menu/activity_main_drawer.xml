@@ -34,7 +34,7 @@
             android:id="@+id/nav_cases"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:icon="@drawable/checklist"
+            android:icon="@drawable/cases"
             android:title="Справочник статей" />
     </group>
 </menu>

@@ -45,8 +45,8 @@
     <fragment
         android:id="@+id/nav_cases"
         android:name="com.example.myapplication.ui.ListCases"
-        android:label="@string/menu_home"
+        android:label="Существующие статьи"
         android:onClick="toStartCalendar"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_cases" />
 
 </navigation>

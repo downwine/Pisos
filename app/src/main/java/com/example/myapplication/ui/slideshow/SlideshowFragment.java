@@ -18,7 +18,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.myapplication.CardAdapter;
 import com.example.myapplication.CardDataModel;
 import com.example.myapplication.R;
-import com.example.myapplication.databinding.FragmentCardsBinding;
 import com.example.myapplication.databinding.FragmentSlideshowBinding;
 import com.example.myapplication.entities.Prisoner;
 import com.example.myapplication.write.WriteActivity;
@@ -35,7 +34,7 @@ import java.util.List;
 
 public class SlideshowFragment extends Fragment {
 
-    private FragmentCardsBinding binding;
+    private FragmentSlideshowBinding binding;
     private DatabaseReference dbPrisoner;
 
     List<SlideDataModel> prisoners = new ArrayList<SlideDataModel>();
@@ -44,18 +43,18 @@ public class SlideshowFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        binding = FragmentCardsBinding.inflate(inflater, container, false);
+        binding = FragmentSlideshowBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         FirebaseDatabase pisosData = FirebaseDatabase.getInstance();
         dbPrisoner  = pisosData.getReference("Prisoner");
 
-//        RecyclerView recyclerView = root.findViewById(R.id.checklist);
+        RecyclerView recyclerView = root.findViewById(R.id.checklist);
 //        // создаем адаптер
-//        adapter = new SlideshowAdapter(getContext(), prisoners);
+        adapter = new SlideshowAdapter(getContext(), prisoners);
 //        // устанавливаем для списка адаптер
-//        recyclerView.setAdapter(adapter);
-//        getDataFromDB();
+        recyclerView.setAdapter(adapter);
+        getDataFromDB();
 
         return root;
     }
