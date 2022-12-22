@@ -1,4 +1,4 @@
-package com.example.myapplication.ui;
+package com.example.myapplication.ui.cases;
 
 import android.annotation.SuppressLint;
 import android.content.Context;

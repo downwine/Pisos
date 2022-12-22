@@ -1,6 +1,5 @@
-package com.example.myapplication.ui;
+package com.example.myapplication.ui.cases;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,15 +9,11 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.myapplication.CardAdapter;
 import com.example.myapplication.R;
 import com.example.myapplication.databinding.FragmentCasesBinding;
 import com.example.myapplication.entities.CrimCase;
-import com.example.myapplication.entities.Prisoner;
-import com.example.myapplication.read.Cases_ReadActivity;
-import com.example.myapplication.ui.slideshow.SlideDataModel;
-import com.example.myapplication.ui.slideshow.SlideshowAdapter;
-import com.example.myapplication.write.WriteActivity;
+import com.example.myapplication.ui.cases.CaseAdapter;
+import com.example.myapplication.ui.cases.CaseDataModel;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -28,8 +23,8 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListCases extends Fragment {
-    private FragmentCasesBinding binding;
+public class CaseFragment extends Fragment {
+    private com.example.myapplication.databinding.FragmentCasesBinding binding;
     private DatabaseReference dbPrisoner;
     private CaseAdapter adapter;
     List<CaseDataModel> cases = new ArrayList<CaseDataModel>();
@@ -37,7 +32,7 @@ public class ListCases extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        binding = FragmentCasesBinding.inflate(inflater, container, false);
+        binding = com.example.myapplication.databinding.FragmentCasesBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         FirebaseDatabase pisosData = FirebaseDatabase.getInstance();

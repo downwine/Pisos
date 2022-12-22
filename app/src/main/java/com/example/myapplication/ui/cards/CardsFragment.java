@@ -10,8 +10,6 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.myapplication.CardAdapter;
-import com.example.myapplication.CardDataModel;
 import com.example.myapplication.R;
 import com.example.myapplication.databinding.FragmentCardsBinding;
 import com.example.myapplication.entities.CrimCase;

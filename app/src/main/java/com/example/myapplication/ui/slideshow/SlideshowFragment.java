@@ -1,28 +1,17 @@
 package com.example.myapplication.ui.slideshow;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.myapplication.CardAdapter;
-import com.example.myapplication.CardDataModel;
 import com.example.myapplication.R;
 import com.example.myapplication.databinding.FragmentSlideshowBinding;
 import com.example.myapplication.entities.Prisoner;
-import com.example.myapplication.write.WriteActivity;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;

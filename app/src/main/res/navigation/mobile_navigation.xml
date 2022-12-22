@@ -44,7 +44,7 @@
 
     <fragment
         android:id="@+id/nav_cases"
-        android:name="com.example.myapplication.ui.ListCases"
+        android:name="com.example.myapplication.ui.cases.CaseFragment"
         android:label="Существующие статьи"
         android:onClick="toStartCalendar"
         tools:layout="@layout/fragment_cases" />
