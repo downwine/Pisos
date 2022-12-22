@@ -42,4 +42,11 @@
         android:label="Тюремный покер"
         tools:layout="@layout/fragment_poker" />
 
+    <fragment
+        android:id="@+id/nav_cases"
+        android:name="com.example.myapplication.ui.ListCases"
+        android:label="@string/menu_home"
+        android:onClick="toStartCalendar"
+        tools:layout="@layout/fragment_home" />
+
 </navigation>

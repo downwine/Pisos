@@ -50,12 +50,12 @@ public class SlideshowFragment extends Fragment {
         FirebaseDatabase pisosData = FirebaseDatabase.getInstance();
         dbPrisoner  = pisosData.getReference("Prisoner");
 
-        RecyclerView recyclerView = root.findViewById(R.id.checklist);
-        // создаем адаптер
-        adapter = new SlideshowAdapter(getContext(), prisoners);
-        // устанавливаем для списка адаптер
-        recyclerView.setAdapter(adapter);
-        getDataFromDB();
+//        RecyclerView recyclerView = root.findViewById(R.id.checklist);
+//        // создаем адаптер
+//        adapter = new SlideshowAdapter(getContext(), prisoners);
+//        // устанавливаем для списка адаптер
+//        recyclerView.setAdapter(adapter);
+//        getDataFromDB();
 
         return root;
     }

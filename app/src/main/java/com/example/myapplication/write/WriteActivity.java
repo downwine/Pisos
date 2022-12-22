@@ -77,10 +77,10 @@ public class WriteActivity extends AppCompatActivity {
             Double weight = Double.parseDouble(edWeight.getText().toString());
 
             String[] words = edWelcome.getText().toString().split("\\.");
-            Date welcome = new Date(Integer.parseInt(words[2]), Integer.parseInt(words[1]), Integer.parseInt(words[0]));
+            Date welcome = new Date(Integer.parseInt(words[2]), Integer.parseInt(words[1])-1, Integer.parseInt(words[0]));
 
             String[] words1 = edBye.getText().toString().split("\\.");
-            Date bye = new Date(Integer.parseInt(words1[2]), Integer.parseInt(words1[1]), Integer.parseInt(words1[0]));
+            Date bye = new Date(Integer.parseInt(words1[2]), Integer.parseInt(words1[1])-1, Integer.parseInt(words1[0]));
 
             String сrim_case = spinner.getSelectedItem().toString();
             Integer n_id = cases.indexOf(сrim_case);

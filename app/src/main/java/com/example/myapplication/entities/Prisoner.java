@@ -8,7 +8,7 @@ public class Prisoner {
     public Double height;
     public Double weight;
     public Date welcome, bye;
-    public String id_criminal_Crim_case;
+    public String id_criminal_case;
 
     public Prisoner() {
 
@@ -22,6 +22,6 @@ public class Prisoner {
         this.weight = weight;
         this.welcome = welcome;
         this.bye = bye;
-        this.id_criminal_Crim_case = id_criminal_Crim_case;
+        this.id_criminal_case = id_criminal_Crim_case;
     }
 }

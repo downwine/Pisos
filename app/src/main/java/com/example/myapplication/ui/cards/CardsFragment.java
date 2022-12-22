@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -19,7 +18,6 @@ import com.example.myapplication.entities.CrimCase;
 import com.example.myapplication.entities.Prisoner;
 import com.example.myapplication.write.WriteActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -27,8 +25,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class CardsFragment extends Fragment {
 
@@ -39,6 +38,7 @@ public class CardsFragment extends Fragment {
     FloatingActionButton mFab;
 
     List<CardDataModel> prisoners = new ArrayList<CardDataModel>();
+    Map<String,String> dictionary = new HashMap<String,String>();
     private CardAdapter adapter;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -50,14 +50,15 @@ public class CardsFragment extends Fragment {
         FirebaseDatabase pisosData = FirebaseDatabase.getInstance();
         dbPrisoner  = pisosData.getReference("Prisoner");
         dbCase  = pisosData.getReference("Сrim_Case");
-        setInitialData();
+        //setInitialData();
 
         RecyclerView recyclerView = root.findViewById(R.id.list);
         // создаем адаптер
         adapter = new CardAdapter(getContext(), prisoners);
         // устанавливаем для списка адаптер
         recyclerView.setAdapter(adapter);
-        getDataFromDB();
+        getDataFromDBCase();
+        getDataFromDBPrisoner();
 
         mFab = root.findViewById(R.id.fab);
         mFab.setOnClickListener(new View.OnClickListener() {
@@ -87,7 +88,30 @@ public class CardsFragment extends Fragment {
 
     }
 
-    private void getDataFromDB(){
+    private void getDataFromDBCase(){
+        ValueEventListener vListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot)
+            {
+                dictionary.clear();
+                for(DataSnapshot ds : snapshot.getChildren())
+                {
+                    CrimCase crim_case = ds.getValue(CrimCase.class);
+                    dictionary.put(ds.getKey(), crim_case.name);
+                }
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        };
+        dbCase.addValueEventListener(vListener);
+    }
+
+
+    private void getDataFromDBPrisoner(){
         ValueEventListener vListener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot)
@@ -96,7 +120,7 @@ public class CardsFragment extends Fragment {
                 for(DataSnapshot ds : snapshot.getChildren())
                 {
                     Prisoner prisoner = ds.getValue(Prisoner.class);
-                    prisoners.add(new CardDataModel (prisoner.id_criminal_Crim_case, prisoner.name, prisoner.age,
+                    prisoners.add(new CardDataModel (dictionary.get(prisoner.id_criminal_case), prisoner.name, prisoner.age,
                             prisoner.height, prisoner.weight, prisoner.welcome, prisoner.bye));
                 }
                 if (prisoners.size() == 0) {
@@ -114,7 +138,6 @@ public class CardsFragment extends Fragment {
         };
         dbPrisoner.addValueEventListener(vListener);
     }
-
 //    private View.OnClickListener clickListener = new View.OnClickListener() {
 //        @Override
 //        public void onClick(View v) {
