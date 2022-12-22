@@ -65,7 +65,6 @@ public class WriteActivity extends AppCompatActivity {
         //create an adapter to describe how the items are displayed, adapters are used in several places in android.
 
         edFio = findViewById(R.id.fio_ed);
-        edID = findViewById(R.id.id_ed);
         edAge = findViewById(R.id.age_ed);
         edHeight = findViewById(R.id.height_ed);
         edWeight = findViewById(R.id.weight_ed);

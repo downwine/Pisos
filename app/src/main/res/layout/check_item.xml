@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/check_prisoner"
+    android:layout_width="match_parent"
+    android:foreground="?android:selectableItemBackground"
+    android:clickable="true"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="20dp"
+    android:focusable="true"
+    android:layout_height="75dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="75dp">
+
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/fiotextView"
+            android:layout_width="330dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            app:layout_constraintStart_toEndOf="@+id/checkBox"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

@@ -36,7 +36,6 @@ public class CardsFragment extends Fragment {
     private DatabaseReference dbPrisoner;
 
     FloatingActionButton mFab;
-    private LinearLayout positionOfPopUp;
 
     List<CardDataModel> prisoners = new ArrayList<CardDataModel>();
     private CardAdapter adapter;
@@ -86,6 +85,7 @@ public class CardsFragment extends Fragment {
 //                "192 см", "88 кг", R.drawable.ivan));
 //        cards.add(new CardDataModel ("Серов Марк Михайлович", "37 лет",
 //                "181 см", "90 кг", R.drawable.kolya));
+
         String id = dbPrisoner.getKey();
         String name =  "Васильева- Куприянова София Олеговна";
         Integer age = 20;
@@ -96,6 +96,7 @@ public class CardsFragment extends Fragment {
         CrimCase crim_case = new CrimCase("украл", "Вор");
         Prisoner newPrisoner = new Prisoner(name, age, height, weight, id, welcome, bye, crim_case.name);
         dbPrisoner.push().setValue(newPrisoner);
+
 
     }
 
@@ -125,7 +126,6 @@ public class CardsFragment extends Fragment {
             }
         };
         dbPrisoner.addValueEventListener(vListener);
-        //System.out.println(Array.getLength(prisoners));
     }
 
     private void getEmptyLayout() {
