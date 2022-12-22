@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.myapplication.R;
 import com.example.myapplication.entities.CrimCase;
 import com.example.myapplication.entities.Prisoner;
+import com.example.myapplication.ui.cards.CardsFragment;
 import com.google.android.gms.common.util.ArrayUtils;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -48,12 +49,6 @@ public class WriteActivity extends AppCompatActivity {
         System.out.println(Arrays.toString(crim_cases));
         Intent i = getIntent();
     }
-
-//    @Override
-//    protected void onStart() {
-//        super.onStart();
-//        init();
-//    }
 
     private void init() {
         spinner = findViewById(R.id.spinner);
@@ -99,6 +94,9 @@ public class WriteActivity extends AppCompatActivity {
             edWeight.getText().clear();
             edWelcome.getText().clear();
             edBye.getText().clear();
+            adapter.clear(); // clear items
+            adapter.notifyDataSetChanged(); // update spinner view
+
             Toast.makeText(getApplicationContext(), "Данные записаны", Toast.LENGTH_SHORT).show();
         }
 
