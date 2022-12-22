@@ -48,7 +48,7 @@ public class CardsFragment extends Fragment {
         FirebaseDatabase pisosData = FirebaseDatabase.getInstance();
         dbPrisoner  = pisosData.getReference("Prisoner");
         dbCase  = pisosData.getReference("Сrim_Case");
-        //setInitialData();
+        setInitialData();
 
         RecyclerView recyclerView = root.findViewById(R.id.list);
         // создаем адаптер
