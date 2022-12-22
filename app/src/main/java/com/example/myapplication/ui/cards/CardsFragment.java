@@ -93,7 +93,7 @@ public class CardsFragment extends Fragment {
         Double weight = 100.78;
         Date welcome = new Date(2022, 01, 01);
         Date bye = new Date(2023, 01, 01);
-        CrimCase crim_case = new CrimCase(id, "украл", "Вор");
+        CrimCase crim_case = new CrimCase("украл", "Вор");
         Prisoner newPrisoner = new Prisoner(name, age, height, weight, id, welcome, bye, crim_case.name);
         dbPrisoner.push().setValue(newPrisoner);
 
@@ -108,7 +108,11 @@ public class CardsFragment extends Fragment {
                 for(DataSnapshot ds : snapshot.getChildren())
                 {
                     Prisoner prisoner = ds.getValue(Prisoner.class);
-                    assert prisoner != null;
+                    if (prisoner == null) //ДИАЛОГИ ТЕТ А ТЕТ ДО УТРА ЗА ЖИЛИ БЫЛИ
+                    {
+                        getEmptyLayout();
+                        break;
+                    }
                     prisoners.add(new CardDataModel (prisoner.id_criminal_Crim_case, prisoner.name, prisoner.age,
                             prisoner.height, prisoner.weight, prisoner.welcome, prisoner.bye));
                 }
@@ -122,6 +126,10 @@ public class CardsFragment extends Fragment {
         };
         dbPrisoner.addValueEventListener(vListener);
         //System.out.println(Array.getLength(prisoners));
+    }
+
+    private void getEmptyLayout() {
+
     }
 
 

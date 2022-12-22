@@ -1,10 +1,12 @@
 package com.example.myapplication.entities;
 
 public class CrimCase {
-    public String id, name,description;
+    public String name, description;
 
-    public CrimCase(String id, String name, String description) {
-        this.id = id;
+    public CrimCase() {
+    }
+
+    public CrimCase(String name, String description) {
         this.name = name;
         this.description = description;
     }
