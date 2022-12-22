@@ -34,6 +34,7 @@ public class CardsFragment extends Fragment {
 
     private FragmentCardsBinding binding;
     private DatabaseReference dbPrisoner;
+    private DatabaseReference dbCase;
 
     FloatingActionButton mFab;
 
@@ -48,6 +49,7 @@ public class CardsFragment extends Fragment {
 
         FirebaseDatabase pisosData = FirebaseDatabase.getInstance();
         dbPrisoner  = pisosData.getReference("Prisoner");
+        dbCase  = pisosData.getReference("Сrim_Case");
         setInitialData();
 
         RecyclerView recyclerView = root.findViewById(R.id.list);
