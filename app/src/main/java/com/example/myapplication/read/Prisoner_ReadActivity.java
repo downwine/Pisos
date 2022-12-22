@@ -29,11 +29,6 @@ public class Prisoner_ReadActivity extends AppCompatActivity {
         FirebaseDatabase pisosData = FirebaseDatabase.getInstance();
         DatabaseReference dbPrisoner  = pisosData.getReference("Prisoner");
 
-
-        // listView = findViewById(R.id. ааа куда данные пихать
-        // adapter = new ArrayAdapter<>(this, android.R.layout.???, listData);
-        // listView.setAdapter(adapter)
-
         }
 
     private void getDataFromDB(){

@@ -35,10 +35,6 @@ public class CaseFragment extends Fragment {
         FirebaseDatabase pisosData = FirebaseDatabase.getInstance();
         dbCases = pisosData.getReference("Сrim_Case");
 
-//        Intent myIntent = new Intent(getContext(), Cases_ReadActivity.class);
-//        myIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//        startActivity(myIntent);
-
         RecyclerView recyclerView = root.findViewById(R.id.caselist);
         // создаем адаптер
         adapter = new CaseAdapter(getContext(), cases);
