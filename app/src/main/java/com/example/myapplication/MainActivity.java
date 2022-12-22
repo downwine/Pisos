@@ -46,13 +46,7 @@ public class MainActivity extends AppCompatActivity implements CalendarAdapter.O
         setContentView(binding.getRoot());
 
         setSupportActionBar(binding.appBarMain.toolbar);
-//        binding.appBarMain.fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
+
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
         // Passing each menu ID as a set of Ids because each
@@ -213,31 +207,4 @@ public class MainActivity extends AppCompatActivity implements CalendarAdapter.O
         startActivity(i);
     }
 
-//    private PopupWindow myPopUp;
-//    private Button prisoner1;
-
-//    private void showPopUp(View view)
-//    {
-//        prisoner1 = findViewById(R.id.button);
-//        View.OnClickListener myCard = new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                LayoutInflater inflater = (LayoutInflater)getBaseContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-//                View customView = inflater.inflate(R.layout.popup_layout1, null);
-//                myPopUp = new PopupWindow(
-//                        customView,
-//                        LinearLayout.LayoutParams.WRAP_CONTENT,
-//                        LinearLayout.LayoutParams.WRAP_CONTENT
-//                );
-//                ImageButton closePopUp = customView.findViewById(R.id.imageButton);
-//                closePopUp.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View view) {
-//                        myPopUp.dismiss();
-//                    }
-//                });
-//            }
-//        };
-//        prisoner1.setOnClickListener(myCard);
-//    }
 }

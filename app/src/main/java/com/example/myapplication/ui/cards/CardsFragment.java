@@ -63,9 +63,6 @@ public class CardsFragment extends Fragment {
         mFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Here's a Snackbar", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-
                 Intent myIntent = new Intent(view.getContext(), WriteActivity.class);
                 myIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(myIntent);
@@ -77,28 +74,16 @@ public class CardsFragment extends Fragment {
 
     private void setInitialData(){
 
-//        cards.add(new CardDataModel ("Ильинский Егор Максимович", "26 лет",
-//                "163 см", "65 кг", R.drawable.andrew));
-//        cards.add(new CardDataModel ("Сотников Демьян Тимофеевич", "19 лет",
-//                "175 см", "57 кг",R.drawable.anton));
-//        cards.add(new CardDataModel ("Самойлов Сергей Ильич", "30 лет",
-//                "188 см", "92 кг", R.drawable.sasha));
-//        cards.add(new CardDataModel ("Серов Давид Матвеевич", "45 лет",
-//                "192 см", "88 кг", R.drawable.ivan));
-//        cards.add(new CardDataModel ("Серов Марк Михайлович", "37 лет",
-//                "181 см", "90 кг", R.drawable.kolya));
-
-        String id = dbPrisoner.getKey();
-        String name =  "Васильева- Куприянова София Олеговна";
-        Integer age = 20;
-        Double height = 1.78;
-        Double weight = 100.78;
-        Date welcome = new Date(2022, 01, 01);
-        Date bye = new Date(2023, 01, 01);
-        CrimCase crim_case = new CrimCase("украл", "Вор");
-        Prisoner newPrisoner = new Prisoner(name, age, height, weight, id, welcome, bye, crim_case.name);
-        dbPrisoner.push().setValue(newPrisoner);
-
+//        String id = dbPrisoner.getKey();
+//        String name =  "Васильева- Куприянова София Олеговна";
+//        Integer age = 20;
+//        Double height = 1.78;
+//        Double weight = 100.78;
+//        Date welcome = new Date(2022, 01, 01);
+//        Date bye = new Date(2023, 01, 01);
+//        CrimCase crim_case = new CrimCase("украл", "Вор");
+//        Prisoner newPrisoner = new Prisoner(name, age, height, weight, id, welcome, bye, crim_case.name);
+//        dbPrisoner.push().setValue(newPrisoner);
 
     }
 
@@ -111,13 +96,13 @@ public class CardsFragment extends Fragment {
                 for(DataSnapshot ds : snapshot.getChildren())
                 {
                     Prisoner prisoner = ds.getValue(Prisoner.class);
-                    if (prisoner == null) //ДИАЛОГИ ТЕТ А ТЕТ ДО УТРА ЗА ЖИЛИ БЫЛИ
-                    {
-                        getEmptyLayout();
-                        break;
-                    }
                     prisoners.add(new CardDataModel (prisoner.id_criminal_Crim_case, prisoner.name, prisoner.age,
                             prisoner.height, prisoner.weight, prisoner.welcome, prisoner.bye));
+                }
+                if (prisoners.size() == 0) {
+                    Intent myIntent = new Intent(getContext(), WriteActivity.class);
+                    myIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(myIntent);
                 }
                 adapter.notifyDataSetChanged();
             }
@@ -129,11 +114,6 @@ public class CardsFragment extends Fragment {
         };
         dbPrisoner.addValueEventListener(vListener);
     }
-
-    private void getEmptyLayout() {
-
-    }
-
 
 //    private View.OnClickListener clickListener = new View.OnClickListener() {
 //        @Override
