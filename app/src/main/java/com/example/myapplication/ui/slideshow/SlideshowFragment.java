@@ -50,9 +50,9 @@ public class SlideshowFragment extends Fragment {
         dbPrisoner  = pisosData.getReference("Prisoner");
 
         RecyclerView recyclerView = root.findViewById(R.id.checklist);
-//        // создаем адаптер
+        // создаем адаптер
         adapter = new SlideshowAdapter(getContext(), prisoners);
-//        // устанавливаем для списка адаптер
+        // устанавливаем для списка адаптер
         recyclerView.setAdapter(adapter);
         getDataFromDB();
 

@@ -41,7 +41,7 @@ public class Cases_ReadActivity extends AppCompatActivity {
         }
         private void init()
         {
-            listView = findViewById(R.id.post_from_bd);
+            listView = findViewById(R.id.caselist);
             listData = new ArrayList<>();
             listTemp = new ArrayList<>();
             adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1, listData);
